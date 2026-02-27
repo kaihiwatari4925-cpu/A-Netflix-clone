@@ -14,3 +14,10 @@ async function getMovies() {
     }
 }
 getMovies(); // Ise call karna mat bhulna!
+function playMovie(tmdbId) {
+    // Ye universal player hai jo movies fetch karega
+    const playerUrl = `https://vidsrc.me/embed/movie?tmdb=${tmdbId}`;
+    const modal = document.getElementById('player-modal');
+    document.getElementById('video-player').src = playerUrl;
+    modal.style.display = 'block';
+}
