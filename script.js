@@ -4,7 +4,7 @@
 // Replace this placeholder with your valid YouTube API key
 const youtubeApiKey = "AIzaSyAbdBwkQWBVskzgZtMSrfAw8D-bSUU3tFY";
 
-const apiKey = "e950e51d5d49e85f7c2f17f01eb23ba3";
+const apiKey = "438efd42c0d3c8fcd74eac49eaca8c51";
 const apiEndpoint = "https://api.themoviedb.org/3";
 const imgPath = "https://image.tmdb.org/t/p/original";
 
