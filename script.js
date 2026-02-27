@@ -4,21 +4,18 @@ const imgPath = "https://image.tmdb.org/t/p/w500";
 
 const main = document.getElementById('main');
 
-// Movies fetch karne ka function
 async function getMovies() {
     try {
         const response = await fetch(`${apiEndpoint}/movie/popular?api_key=${apiKey}&language=hi-IN&page=1`);
         const data = await response.json();
-        
         if (data.results) {
             displayMovies(data.results);
         }
     } catch (error) {
-        console.error("Data load nahi hua:", error);
+        console.error("Posters load nahi hue:", error);
     }
 }
 
-// Movies screen par dikhane ka function
 function displayMovies(movies) {
     main.innerHTML = '';
     movies.forEach(movie => {
@@ -35,11 +32,18 @@ function displayMovies(movies) {
     });
 }
 
-// Movie play karne ka function (TeraBox Premium logic)
+// MovieMaza Player Logic (Supports Premium Streaming)
 function playMovie(id) {
     const playerUrl = `https://vidsrc.me/embed/movie?tmdb=${id}`;
-    window.open(playerUrl, '_blank'); 
+    const modal = document.getElementById('player-modal');
+    document.getElementById('video-player').src = playerUrl;
+    modal.style.display = 'block';
 }
 
-// App start hote hi movies load karein
+// Close Modal logic
+document.querySelector('.close').onclick = () => {
+    document.getElementById('player-modal').style.display = 'none';
+    document.getElementById('video-player').src = '';
+}
+
 getMovies();
